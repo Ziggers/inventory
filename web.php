@@ -23,3 +23,13 @@ Route::post('/categories', [CategoriesController::class, 'store'])->name('catego
 Route::get('/categories/{category}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{category}', [CategoriesController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{category}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+
+Auth::routes();
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
